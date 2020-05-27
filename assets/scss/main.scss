@@ -1,0 +1,30 @@
+/* Resetting */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 30%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+/* Tablet */
+
+@mixin tablet {
+    @media screen and (max-width: 780px) {
+        @content;
+    }
+}
+
+
+/* Mobile */
+
+@mixin phone {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
