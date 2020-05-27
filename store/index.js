@@ -13,13 +13,11 @@ export const state = function() {
 export const getters = {
     getField,
     articles(state) {
-        console.log("Value of: Guardian articles ", state.articles);
         return state.articles
     },
 
     nytArticles(state) {
         const theArticles = state.nytArticles;
-        console.log(theArticles)
         return state.nytArticles;
 
     }
@@ -46,7 +44,6 @@ export const actions = {
             )
             .then(res => {
                 context.commit('LOAD_DATA', res.data.response.results);
-                console.log('Guardian Data Loaded')
 
             })
             .catch(err => console.log(err))
@@ -61,7 +58,6 @@ export const actions = {
 
         let offset = 20 * (page - 1) || 0
 
-        console.log(offset)
         axios
             .get(
                 `https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=dzBhAk8oO2n8LOxuRU0MgGlu9KBnsIzw&offset=${offset}`
@@ -69,9 +65,7 @@ export const actions = {
             )
             .then(res => {
                 context.commit('LOAD_NYT_DATA', res.data.results);
-                console.log('NYT Data Loaded')
 
-                console.log('NYT Res num results', res.data.num_results)
 
 
             })
